@@ -3,12 +3,11 @@
  */
 function onloadMenu() {
 	/* Test for Cookies */
-	var text = "";
 	if (navigator.cookieEnabled == true) {
-		text = "Cookies are enabled.";
+		/* Cookies enabled */
 	} 
 	else {
-		text = "Cookies are not enabled.";
+		/* Cookies not enabled */
 	}
 	createMenu();
 	
@@ -17,11 +16,11 @@ function onloadMenu() {
 function createMenu() {
 	var menuDiv = document.getElementById("menu");
 	const menuItems = [
-		["Home", "a", "index.html"],
-		["My GitHub", "a", "https://github.com/SamGoodin"],
-		["My Linkedin", "a", "https://www.linkedin.com/in/samuel-goodin-8a17ab152/"],
-		["My Twitch", "a", "https://www.twitch.tv/xsammyboi"],
-		["Solaris", "a", "solaris_stream.html"]
+		["Home", "a", "index.html", "__self"],
+		["My GitHub", "a", "https://github.com/SamGoodin", "__blank"],
+		["My Linkedin", "a", "https://www.linkedin.com/in/samuel-goodin-8a17ab152/", "__blank"],
+		["My Twitch", "a", "https://www.twitch.tv/xsammyboi", "__blank"],
+		["Solaris", "a", "solaris_stream.html", "__self"]
 	]
 	
 	var length = menuItems.length;
@@ -29,6 +28,7 @@ function createMenu() {
 		var link = document.createElement(menuItems[i][1]);
 		link.href = menuItems[i][2];
 		link.innerHTML = menuItems[i][0];
+		link.target = menuItems[i][3];
 		menuDiv.appendChild(link);
 	}
 	
