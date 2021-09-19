@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+
+div {
+	/* All divs */
+	background-color: green;
+	position: relative;
+	top: 10px;
+	border: 2px solid black;
+	width: 85%;
+	margin: 1%;
+	padding: 2%;
+}
+
+div#header {
+	/* All divs with id header*/
+	background-color: blue;
+}
+
+div.menu {
+	/* All divs with class menu*/
+	background-color: red;
+}
+
+div#homepage {
+	/* All divs with id homepage */
+	min-height: 150px;
+	height: 500px;
+}
