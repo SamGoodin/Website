@@ -11,9 +11,26 @@ div {
 	padding: 2%;
 }
 
-div#header {
+div#header, div#samInfo {
 	/* All divs with id header*/
 	background-color: blue;
+}
+
+img#headshot {
+	float: left;
+	right: 20px;
+}
+
+h1#name {
+	position: relative;
+	left: 20px;
+	/* Border around text */
+	text-shadow: .5px .5px #ffffff;
+}
+
+h3#info {
+	position: relative;
+	top: 10px;
 }
 
 div.menu {

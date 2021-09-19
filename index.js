@@ -9,8 +9,35 @@ function onloadMenu() {
 	else {
 		/* Cookies not enabled */
 	}
+	createHeader();
 	createMenu();
 	
+}
+
+function createHeader () {
+	var header = document.getElementById("header");
+	
+	var samInfo = document.createElement("div");
+	samInfo.id = "samInfo";
+	header.appendChild(samInfo);
+	
+	var headshot = document.createElement("img");
+	headshot.id = "headshot";
+	headshot.src = "media/headshot.png";
+	headshot.alt = "Sam Goodin Headshot";
+	headshot.width = 75;
+	headshot.height = 75;
+	samInfo.appendChild(headshot);
+	
+	var name = document.createElement("h1");
+	name.id = "name";
+	name.innerHTML = "Sam Goodin";
+	samInfo.appendChild(name);
+	
+	var info = document.createElement("h3");
+	info.id = "info";
+	info.innerHTML = "IUPUI '21 Bachelors of Science in Computer Science";
+	samInfo.appendChild(info);
 }
 
 function createMenu() {
