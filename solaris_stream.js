@@ -31,10 +31,11 @@ function onloadStream() {
 
 function getNewSource() {
 	var newSrc = prompt("Please enter the stream source"); 
-	window.localStorage.setItem("lastSolarisSrc", newSrc);
-	document.getElementById("player").src = newSrc;
-	document.getElementById("streamSrc").innerHTML = "Current source: " + newSrc;
-
+	if (newSrc != null) {
+		window.localStorage.setItem("lastSolarisSrc", newSrc);
+		document.getElementById("player").src = newSrc;
+		document.getElementById("streamSrc").innerHTML = "Current source: " + newSrc;
+	}
 }
 
 function createSolarisStream(source) {
@@ -44,5 +45,6 @@ function createSolarisStream(source) {
 	newiframe.src = source;
 	newiframe.height = 400;
 	newiframe.width = 500;
+	newiframe.allowfullscreen = true;
 	body.appendChild(newiframe);
 }
