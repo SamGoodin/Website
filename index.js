@@ -47,7 +47,8 @@ function createMenu() {
 		["My GitHub", "a", "https://github.com/SamGoodin", "__blank"],
 		["My Linkedin", "a", "https://www.linkedin.com/in/samuel-goodin-8a17ab152/", "__blank"],
 		["My Twitch", "a", "https://www.twitch.tv/xsammyboi", "__blank"],
-		["Solaris", "a", "solaris_stream.html"]
+		["Solaris", "a", "solaris_stream.html"],
+		["mp4 Player", "a", "mp4_player.html"]
 	]
 	
 	var length = menuItems.length;
