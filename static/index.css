@@ -1,5 +1,10 @@
 @charset "ISO-8859-1";
 
+.dark-mode {
+	background-color: black;
+	color: white;
+}
+
 div {
 	/* All divs */
 	background-color: green;

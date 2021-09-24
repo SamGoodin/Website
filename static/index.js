@@ -2,6 +2,14 @@
  * 
  */
 function onloadMain() {
+	// This is called for every webpage on the domain
+	
+	// Setup index page
+	setupIndex();
+	
+}
+
+function setupIndex() {
 	/* Test for Cookies */
 	if (navigator.cookieEnabled == true) {
 		/* Cookies enabled */
@@ -9,9 +17,13 @@ function onloadMain() {
 	else {
 		/* Cookies not enabled */
 	}
+	
 	createHeader();
 	createMenu();
-	
+}
+
+function toggleDarkMode() {
+	document.body.classList.toggle('dark-mode');
 }
 
 function createHeader () {
@@ -38,6 +50,11 @@ function createHeader () {
 	info.id = "info";
 	info.innerHTML = "IUPUI '21 Bachelors of Science in Computer Science";
 	samInfo.appendChild(info);
+	
+	var darkMode = document.createElement("button");
+	darkMode.onclick = toggleDarkMode();
+	darkMode.innerHTML = "Dark Mode";
+	samInfo.append(darkMode);
 }
 
 function createMenu() {

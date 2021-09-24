@@ -6,6 +6,11 @@ function onloadStream() {
 	// Always call to load main page components
 	onloadMain();
 	
+	// Setup stream page
+	setupStreamPage();
+}
+
+function setupStreamPage() {
 	var SolarisStreamSrc = "";
 	
 	if (!window.localStorage.getItem("lastSolarisSrc") || window.localStorage.getItem("lastSolarisSrc") == null) {
@@ -16,7 +21,6 @@ function onloadStream() {
 		SolarisStreamSrc = window.localStorage.getItem("lastSolarisSrc");
 	}
 	
-	createSolarisStream(SolarisStreamSrc);
 	var streamSrcP = document.createElement("p");
 	streamSrcP.id = "streamSrc";
 	streamSrcP.innerHTML = "Current source: " + SolarisStreamSrc;
@@ -27,6 +31,8 @@ function onloadStream() {
 	resourceBtn.innerHTML = 'Use new source';
 	resourceBtn.onclick = getNewSource;
 	document.getElementById("homepage").appendChild(resourceBtn);
+	
+	createSolarisStream(SolarisStreamSrc);
 	
 }
 
@@ -50,10 +56,13 @@ function createSolarisStream(source) {
 	newiframe.style = "border:4px solid blue"
 	body.appendChild(newiframe);
 
-	resizeHomepage(body, newiframe);
+	resizeHomepage(newiframe, homepage=body);
 }
 
-function resizeHomepage(homepage, iframe) {
+function resizeHomepage(iframe, homepage=null) {
+	if (!homepage) {
+		homepage = document.getElementById("homepage");
+	}
     if (homepage.style.width < iframe.width) {
 		resizeAllWidth(parseInt(iframe.width) + 50);
     }
