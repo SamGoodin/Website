@@ -14,7 +14,7 @@ def index():
 
 @app.route('/solaris_stream.html')
 def stream():
-    return redirect(url_for('getRanks'))
+    return render_template("solaris_stream.html")
 
 
 @app.route('/web_scraper.html')

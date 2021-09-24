@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet" href="index.css">
-<title>Solaris Stream</title>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="index.css">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='index.css') }}">
+	<title>Solaris Stream</title>
 </head>
 <body onload="onloadStream()">
 
 	<div id="header">
-		This is my site header
 	</div>
 	
 	<div id="menu" class="menu">
-	
 	</div>
 	
 	<div id="homepage" class="stream">
-		
 	</div>
-	
-	<script src="index.js"></script>
-	<script src="solaris_stream.js"></script>
+
+	<script src="{{url_for('static', filename='index.js')}}"></script>
+	<script src="{{url_for('static', filename='solaris_stream.js')}}"></script>
 
 </body>
 </html>

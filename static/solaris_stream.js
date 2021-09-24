@@ -43,8 +43,20 @@ function createSolarisStream(source) {
 	newiframe = document.createElement("iframe");
 	newiframe.id = "player";
 	newiframe.src = source;
-	newiframe.height = 400;
-	newiframe.width = 500;
-	newiframe.allowfullscreen = true;
+	newiframe.height = 720;
+	newiframe.width = 1280;
+	newiframe.setAttribute('allowFullScreen', '');
+	newiframe.style = "border:4px solid blue"
 	body.appendChild(newiframe);
+
+	resizeHomepage(body, newiframe);
+}
+
+function resizeHomepage(homepage, iframe) {
+    if (homepage.style.width < iframe.width) {
+        homepage.style.width = parseInt(iframe.width) + 50 + "px";
+    }
+    if (homepage.style.height < iframe.height) {
+        homepage.style.height = parseInt(iframe.height) + 70 + "px";
+    }
 }
