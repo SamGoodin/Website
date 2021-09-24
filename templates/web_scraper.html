@@ -8,16 +8,14 @@
 <body onload="onloadScraper()">
 
 	<div id="header">
-
 	</div>
 
 	<div id="menu" class="menu">
-
 	</div>
 
 	<div id="homepage">
 		{% if data: %}
-			<p>{{data}}</p>
+			<p id="data" hidden=true>{{data}}</p>
 		{% endif %}
 	</div>
 

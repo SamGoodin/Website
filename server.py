@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
+#--------------- Index ---------------------------------
 
 @app.route('/index')
 @app.route('/index.html')
@@ -12,10 +13,14 @@ def index():
     print("Returning index")
     return render_template('index.html')
 
+#--------------- Stream ---------------------------------
+
 @app.route('/solaris_stream.html')
 def stream():
     print("Returning stream page")
     return render_template("solaris_stream.html")
+
+#--------------- Web Scraper ---------------------------------
 
 @app.route('/web_scraper.html')
 def web_scraper():
@@ -61,6 +66,15 @@ def siteScrape():
     print(".SiteScrape: Finish!")
 
     return render_template("web_scraper.html", data=soup.prettify())
+
+#--------------- Algorithms ---------------------------------
+
+@app.route('/algorithms.html')
+def algorithms():
+    print("Returning algorithm page")
+    return render_template("algorithms.html")
+
+#------------------------------------------------------------
 
 """
 @app.route('/post/<int:post_id>')

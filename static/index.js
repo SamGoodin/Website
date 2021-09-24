@@ -1,7 +1,7 @@
 /**
  * 
  */
-function onloadMenu() {
+function onloadMain() {
 	/* Test for Cookies */
 	if (navigator.cookieEnabled == true) {
 		/* Cookies enabled */
@@ -48,7 +48,8 @@ function createMenu() {
 		["My Linkedin", "a", "https://www.linkedin.com/in/samuel-goodin-8a17ab152/", "__blank"],
 		["My Twitch", "a", "https://www.twitch.tv/xsammyboi", "__blank"],
 		["Solaris", "a", "solaris_stream.html"],
-		["Python Scraper", "a", "web_scraper.html"]
+		["Python Scraper", "a", "web_scraper.html"],
+		["Algorithms", "a", "algorithms.html"]
 	]
 	
 	var length = menuItems.length;
@@ -71,6 +72,18 @@ function menuFormat(menuItems) {
 	for (let i = 0; i < length - 1; i++) {
 		menuItems[i].innerHTML = menuItems[i].innerHTML + ' | ';
 	}
+}
+
+function resizeAll(width, height) {
+	resizeAllWidth(width);
+	resizeAllHeight(height);
+}
+
+function resizeAllHeight(height) {
+	// Takes height as integer representing the pixel height of each component
+	document.getElementById("header").style.height = height + "px";
+	document.getElementById("menu").style.height = height + "px";
+	document.getElementById("homepage").style.height = height + "px";
 }
 
 function resizeAllWidth(width) {

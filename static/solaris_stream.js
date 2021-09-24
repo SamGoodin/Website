@@ -3,7 +3,8 @@
  */
 function onloadStream() {
 	
-	onloadMenu();
+	// Always call to load main page components
+	onloadMain();
 	
 	var SolarisStreamSrc = "";
 	
