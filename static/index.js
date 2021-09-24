@@ -73,3 +73,10 @@ function menuFormat(menuItems) {
 	}
 }
 
+function resizeAllWidth(width) {
+	// Takes width as integer representing the pixel width of each component
+	document.getElementById("header").style.width = width + "px";
+	document.getElementById("menu").style.width = width + "px";
+	document.getElementById("homepage").style.width = width + "px";
+}
+

@@ -9,42 +9,24 @@ app = Flask(__name__)
 @app.route('/index.html')
 @app.route('/')
 def index():
+    print("Returning index")
     return render_template('index.html')
-
 
 @app.route('/solaris_stream.html')
 def stream():
+    print("Returning stream page")
     return render_template("solaris_stream.html")
 
-
 @app.route('/web_scraper.html')
-def webScraper():
+def web_scraper():
+    print("Returning web scraper page")
     return render_template('web_scraper.html')
 
-
-@app.route('/web_scraper.html', methods=['POST'])
-def completeScrape(site=None):
-    print("working...")
-
-    # Web Scraping
-    text = request.form['text']
-    data = requests.get(text)
-
-    # load data into bs4
-    soup = BeautifulSoup(data.text, 'html.parser')
-
-    print("done")
-
-    return render_template("web_scraper.html", data=soup.prettify())
-
-
-@app.route('/...myOWRanks/')
-def getRanks():
-    print("working...")
-
-    # Web Scraping
+@app.route('/web_scraper.html-owRankScrape', methods=['POST'])
+def owRankScrape():
+    print(".OWRankScrape: Begin")
     data = requests.get('https://playoverwatch.com/en-us/career/pc/xSammyBoi-1750/')
-
+    
     # load data into bs4
     soup = BeautifulSoup(data.text, 'html.parser')
 
@@ -53,12 +35,32 @@ def getRanks():
     dpsSR = allSR[1].text
     supportSR = allSR[2].text
     allRanksNeat = [tankSR, dpsSR, supportSR]
+    print(f"...OWRankScrape: Returning {allRanksNeat}")
 
-    print("done")
+    print(".OWRankScrape: Finish!")
 
-    # TODO: figure out how to pass data through redirect back to page
-    return redirect(request.referrer)
-    #return render_template("web_scraper.html", data=allRanksNeat)
+    return render_template("web_scraper.html", data=allRanksNeat)
+
+@app.route('/web_scraper.html-siteScrape', methods=['POST'])
+def siteScrape():
+    print(".SiteScrape: Begin")
+    # Web Scraping
+    text = request.form['text']
+    data = requests.get(text)
+
+    # load data into bs4
+    soup = BeautifulSoup(data.text, 'html.parser')
+
+    #print(f"...SiteScrape: Returning {soup.prettify()}.")
+    """
+    Error with above code:
+    UnicodeEncodeError: 'charmap' codec can't encode characters 
+    in position 2004223-2004229: character maps to <undefined>
+    """
+
+    print(".SiteScrape: Finish!")
+
+    return render_template("web_scraper.html", data=soup.prettify())
 
 """
 @app.route('/post/<int:post_id>')

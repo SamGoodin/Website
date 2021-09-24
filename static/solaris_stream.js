@@ -54,7 +54,7 @@ function createSolarisStream(source) {
 
 function resizeHomepage(homepage, iframe) {
     if (homepage.style.width < iframe.width) {
-        homepage.style.width = parseInt(iframe.width) + 50 + "px";
+		resizeAllWidth(parseInt(iframe.width) + 50);
     }
     if (homepage.style.height < iframe.height) {
         homepage.style.height = parseInt(iframe.height) + 70 + "px";
