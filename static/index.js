@@ -23,7 +23,16 @@ function setupIndex() {
 }
 
 function toggleDarkMode() {
-	document.body.classList.toggle('dark-mode');
+	var btn = document.getElementById("dark-mode");
+	var curTheme = document.documentElement.getAttribute("data-theme");
+	if (curTheme == 'dark') {
+		document.documentElement.setAttribute('data-theme', 'light');
+		btn.innerHTML = "Dark Mode";
+	}
+	else {
+		document.documentElement.setAttribute('data-theme', 'dark');
+		btn.innerHTML = "Light Mode";
+	}
 }
 
 function createHeader () {
@@ -52,7 +61,8 @@ function createHeader () {
 	samInfo.appendChild(info);
 	
 	var darkMode = document.createElement("button");
-	darkMode.onclick = toggleDarkMode();
+	darkMode.id = "dark-mode";
+	darkMode.onclick = toggleDarkMode;
 	darkMode.innerHTML = "Dark Mode";
 	samInfo.append(darkMode);
 }

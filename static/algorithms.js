@@ -13,4 +13,6 @@ function onloadAlgorithms() {
 
 function setupAlgorithms() {
 	
+	
+	
 }
