@@ -76,7 +76,8 @@ function createMenu() {
 		["My Twitch", "a", "https://www.twitch.tv/xsammyboi", "__blank"],
 		["Solaris", "a", "solaris_stream.html"],
 		["Python Scraper", "a", "web_scraper.html"],
-		["Algorithms", "a", "algorithms.html"]
+		["Algorithms", "a", "algorithms.html"],
+		["Database", "a", "database.html"]
 	]
 	
 	var length = menuItems.length;
